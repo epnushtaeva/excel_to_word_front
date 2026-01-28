@@ -16,6 +16,7 @@ import {mapGetters} from "vuex";
 export default {
      name: 'App',
     components: {Header, Footer},
+
     computed: {
          ...mapGetters(['token'])
     }

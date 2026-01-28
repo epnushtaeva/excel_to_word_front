@@ -9,5 +9,9 @@ export default Object.freeze({
 
     //excel_lists
     GET_LISTS_URL: '/api/list/get',
-    DOWNLOAD_ZIP_RESULT_URL: '/api/lists/download_result?list_id='
+    DOWNLOAD_ZIP_RESULT_URL: '/api/lists/download_result?list_id=',
+
+    //websocket
+    GET_WESOCKET_CONNECT_TOKEN_URL: '/api/centrifugo/connect_token',
+    GET_WESOCKET_SUBSCRIBE_TOKEN_URL: '/api/centrifugo/channel_connect_info'
 })

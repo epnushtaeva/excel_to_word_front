@@ -28,6 +28,7 @@ export default {
         listsIdsForZipDownloading: []
     },
     actions: {
+
         async getExcelLists({commit}, params){
                let res = await postRequest(Routes.GET_LISTS_URL, params);
                commit('setExcelLists', res.data.data);
@@ -53,9 +54,20 @@ export default {
         },
         endZipDownloading({commit}, listId){
             commit('endZipDownloading', listId);
+        },
+        updateListStatus({commit}, {listId, status, zip_path}){
+            commit('updateListStatus', {listId, status, zip_path});
         }
     },
     mutations:{
+        updateListStatus(state, {listId, status, zip_path}){
+            state.excelLists.forEach(list => {
+                if(list.id == listId){
+                    list.status = status;
+                    list.zip_path = zip_path;
+                }
+            })
+        },
         startZipDownloading(state, listId){
              state.listsIdsForZipDownloading.push(listId);
         },
